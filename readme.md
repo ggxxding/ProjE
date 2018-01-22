@@ -1,3 +1,5 @@
+**Please refer to the most updated version at https://github.com/bxshi/ProjE.**
+
 ## ProjE
 
 Embedding Projection for Knowledge Graph Completion
