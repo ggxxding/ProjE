@@ -232,7 +232,7 @@ class ProjE:
     def __l1_normalize(x, dim, epsilon=1e-12, name=None):
         square_sum = tf.reduce_sum(tf.abs(x), [dim], keep_dims=True)
         x_inv_norm = tf.rsqrt(tf.maximum(square_sum, epsilon))
-        return tf.mul(x, x_inv_norm, name=name)
+        return tf.mul(x, x_inv_norm, name=name)#mul->multiply
 
     @staticmethod
     def sampled_softmax(tensor, weights):
@@ -253,7 +253,7 @@ class ProjE:
             hr_tlist, hr_tlist_weight, tr_hlist, tr_hlist_weight = inputs
 
             # (?, dim)
-            hr_tlist_h = tf.nn.embedding_lookup(normalized_ent_embedding, hr_tlist[:, 0])
+            hr_tlist_h = tf.nn.embedding_lookup(normalized_ent_embedding, hr_tlist[:, 0])#?
             hr_tlist_r = tf.nn.embedding_lookup(rel_embedding, hr_tlist[:, 1])
             # (?, dim)
             tr_hlist_t = tf.nn.embedding_lookup(normalized_ent_embedding, tr_hlist[:, 0])

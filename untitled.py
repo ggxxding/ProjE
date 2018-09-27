@@ -1,0 +1,27 @@
+import argparse
+parser = argparse.ArgumentParser(description='ProjE.')
+parser.add_argument('--data', dest='data_dir', type=str, help="Data folder", default='./data/FB15k/')
+parser.add_argument('--lr', dest='lr', type=float, help="Learning rate", default=0.01)
+parser.add_argument("--dim", dest='dim', type=int, help="Embedding dimension", default=200)
+parser.add_argument("--batch", dest='batch', type=int, help="Batch size", default=200)
+parser.add_argument("--comb", dest="combination_method", type=str, help="Combination method", default='simple')
+parser.add_argument("--worker", dest='n_worker', type=int, help="Evaluation worker", default=3)
+parser.add_argument("--generator", dest='n_generator', type=int, help="Data generator", default=10)
+parser.add_argument("--eval_batch", dest="eval_batch", type=int, help="Evaluation batch size", default=500)
+parser.add_argument("--save_dir", dest='save_dir', type=str, help="Model path", default='./')
+parser.add_argument("--load_model", dest='load_model', type=str, help="Model file", default="")
+parser.add_argument("--save_per", dest='save_per', type=int, help="Save per x iteration", default=10)
+parser.add_argument("--eval_per", dest='eval_per', type=int, help="Evaluate every x iteration", default=1)
+parser.add_argument("--max_iter", dest='max_iter', type=int, help="Max iteration", default=100)
+parser.add_argument("--summary_dir", dest='summary_dir', type=str, help="summary directory",
+                        default='./ProjE_summary/')
+parser.add_argument("--keep", dest='drop_out', type=float, help="Keep prob (1.0 keep all, 0. drop all)",
+                        default=0.5)
+parser.add_argument("--optimizer", dest='optimizer', type=str, help="Optimizer", default='adam')
+parser.add_argument("--prefix", dest='prefix', type=str, help="model_prefix", default='DEFAULT')
+parser.add_argument("--loss_weight", dest='loss_weight', type=float, help="Weight on parameter loss", default=1e-5)
+parser.add_argument("--neg_weight", dest='neg_weight', type=float, help="Sampling weight on negative examples",
+                        default=0.5)
+args = parser.parse_args()
+print(parser)
+print(args.drop_out)
